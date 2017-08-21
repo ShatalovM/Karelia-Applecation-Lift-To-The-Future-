@@ -23,22 +23,5 @@
     <include layout="@layout/content_maps"
         android:id="@+id/include5" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:text="Построить маршрут"
-        app:layout_anchor="@+id/include5"
-        app:layout_anchorGravity="bottom|center_horizontal" />
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="40dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center_vertical|left"
-        android:text=":::"
-        app:layout_anchor="@+id/include5"
-        app:layout_anchorGravity="center_vertical|right" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -170,4 +170,5 @@
 w:	Википедия
 Многоязычная энциклопедия</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_map">Map</string>
 </resources>
