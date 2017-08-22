@@ -162,7 +162,7 @@ public class MapsActivity extends AppCompatActivity
             mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                     .title(Places_base[i])
-                    .icon(BitmapDescriptorFactory.fromResource(R.color.common_google_signin_btn_text_light)));
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker)));
         }
 
         int padding = 50;
