@@ -243,8 +243,8 @@ public class PlaceActivity extends AppCompatActivity
 
         if (getData != null) {
             place_num = getData.getInt("place_num"); // Получаем номер места, необходимого для подгрузки
-            lat = getData.getDouble(""); // Получаем широту места
-            lon = getData.getDouble(""); // Получаем долготу места
+            lat = getData.getDouble("latitude"); // Получаем широту места
+            lon = getData.getDouble("longitude"); // Получаем долготу места
         }
 
         /*
@@ -271,17 +271,45 @@ public class PlaceActivity extends AppCompatActivity
                 background_photo.setImageResource(R.drawable.onezhskoe_ozero);
                 break;
             case 2:
-                setTitle("");
-                place_description.setText("");
+                setTitle(Places_base[0][2]);
+                place_description.setText(Places_base[1][2]);
+                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                break;
             case 3:
-                setTitle("");
-                place_description.setText("");
+                setTitle(Places_base[0][3]);
+                place_description.setText(Places_base[1][3]);
+                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                break;
             case 4:
-                setTitle("");
-                place_description.setText("");
+                setTitle(Places_base[0][4]);
+                place_description.setText(Places_base[1][4]);
+                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                break;
             case 5:
-                setTitle("");
-                place_description.setText("");
+                setTitle(Places_base[0][5]);
+                place_description.setText(Places_base[1][5]);
+                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                break;
+            case 6:
+                setTitle(Places_base[0][6]);
+                place_description.setText(Places_base[1][6]);
+                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                break;
+            case 7:
+                setTitle(Places_base[0][7]);
+                place_description.setText(Places_base[1][7]);
+                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                break;
+            case 8:
+                setTitle(Places_base[0][8]);
+                place_description.setText(Places_base[1][8]);
+                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                break;
+            case 9:
+                setTitle(Places_base[0][9]);
+                place_description.setText(Places_base[1][9]);
+                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                break;
 
             // Определение по категориям
             case -2:

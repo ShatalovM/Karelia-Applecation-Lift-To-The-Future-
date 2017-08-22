@@ -78,6 +78,9 @@ public class MapsActivity extends AppCompatActivity
             34.3897
     };
 
+    double longitude4places;
+    double latitude4places;
+
     private GoogleMap mMap;
     private final LocationListener locationListener = new LocationListener() {
         public void onLocationChanged(Location location) {
@@ -107,6 +110,17 @@ public class MapsActivity extends AppCompatActivity
     double latitude;
     LatLngBounds.Builder builder;
     CameraUpdate cu;
+    Marker m1;
+    Marker m2;
+    Marker m3;
+    Marker m4;
+    Marker m5;
+    Marker m6;
+    Marker m7;
+    Marker m8;
+    Marker m9;
+    Marker m10;
+
 
 
     @Override
@@ -140,6 +154,31 @@ public class MapsActivity extends AppCompatActivity
 
         mMap = googleMap;
 
+        mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener()
+        {
+
+            @Override
+            public void onInfoWindowClick(Marker arg0) {
+                int place_num = 0;
+                if(arg0 != null) {
+                    Intent toMoreInfo = new Intent(MapsActivity.this, PlaceActivity.class);
+
+                    for (int i = 0; i < Places_base.length; i++) {
+                        if (arg0.getTitle().equals(Places_base[i])) {
+                            place_num = i;
+                            latitude4places = Places_latitude[i];
+                            longitude4places = Places_longitude[i];
+                        }
+                    }
+
+                    toMoreInfo.putExtra("place_num", place_num);
+                    toMoreInfo.putExtra("latitude", latitude4places);
+                    toMoreInfo.putExtra("longitude", longitude4places);
+                    startActivity(toMoreInfo);
+                }
+            }
+        });
+
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -158,11 +197,86 @@ public class MapsActivity extends AppCompatActivity
         builder = new LatLngBounds.Builder();
         builder.include(mMap.addMarker(new MarkerOptions().position(new LatLng(
                 location.getLatitude(), location.getLongitude())).title("Вы здесь")).getPosition());
+
+
         for (int i = 0; i < Places_base.length; i++){
             mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                     .title(Places_base[i])
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker)));
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+            );
+
+            switch (Places_base.length){
+                case 0:
+                    m1 = mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(Places_latitude[i], Places_longitude[i]))
+                            .title(Places_base[i])
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                    );
+                    continue;
+                case 1:
+                    m2 = mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(Places_latitude[i], Places_longitude[i]))
+                            .title(Places_base[i])
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                    );
+                    continue;
+                case 2:
+                    m3 = mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(Places_latitude[i], Places_longitude[i]))
+                            .title(Places_base[i])
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                    );
+                    continue;
+                case 3:
+                    m4 = mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(Places_latitude[i], Places_longitude[i]))
+                            .title(Places_base[i])
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                    );
+                    continue;
+                case 4:
+                    m5 = mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(Places_latitude[i], Places_longitude[i]))
+                            .title(Places_base[i])
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                    );
+                    continue;
+                case 5:
+                    m6 = mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(Places_latitude[i], Places_longitude[i]))
+                            .title(Places_base[i])
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                    );
+                    continue;
+                case 6:
+                    m7 = mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(Places_latitude[i], Places_longitude[i]))
+                            .title(Places_base[i])
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                    );
+                    continue;
+                case 7:
+                    m8 = mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(Places_latitude[i], Places_longitude[i]))
+                            .title(Places_base[i])
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                    );
+                    continue;
+                case 8:
+                    m9 = mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(Places_latitude[i], Places_longitude[i]))
+                            .title(Places_base[i])
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                    );
+                case 9:
+                    m10 = mMap.addMarker(new MarkerOptions()
+                            .position(new LatLng(Places_latitude[i], Places_longitude[i]))
+                            .title(Places_base[i])
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                    );
+                    continue;
+            }
         }
 
         int padding = 50;
@@ -182,6 +296,8 @@ public class MapsActivity extends AppCompatActivity
         startActivity(toActivity);
         */
     }
+
+
 
     @Override
     public void onBackPressed() {
