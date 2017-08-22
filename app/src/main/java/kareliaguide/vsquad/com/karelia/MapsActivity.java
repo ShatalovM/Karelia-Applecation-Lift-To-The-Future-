@@ -120,6 +120,7 @@ public class MapsActivity extends AppCompatActivity
     Marker m8;
     Marker m9;
     Marker m10;
+    Marker userLocation;
 
 
 
@@ -195,9 +196,12 @@ public class MapsActivity extends AppCompatActivity
         LatLng user_location = new LatLng(latitude, longitude);
         List<Marker> markersList = new ArrayList<Marker>();
         builder = new LatLngBounds.Builder();
-        builder.include(mMap.addMarker(new MarkerOptions().position(new LatLng(
-                location.getLatitude(), location.getLongitude())).title("Вы здесь")).getPosition());
 
+        userLocation = mMap.addMarker(new MarkerOptions().position(new LatLng(
+                location.getLatitude(), location.getLongitude())).title("Вы здесь"));
+
+        mMap.addMarker(new MarkerOptions().position(new LatLng(
+                location.getLatitude(), location.getLongitude())).title("Вы здесь"));
 
         for (int i = 0; i < Places_base.length; i++){
             mMap.addMarker(new MarkerOptions()
@@ -206,7 +210,8 @@ public class MapsActivity extends AppCompatActivity
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
             );
 
-            switch (Places_base.length){
+
+            switch (i){
                 case 0:
                     m1 = mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(Places_latitude[i], Places_longitude[i]))
@@ -278,6 +283,17 @@ public class MapsActivity extends AppCompatActivity
                     continue;
             }
         }
+
+        builder.include(m1.getPosition());
+        builder.include(m2.getPosition());
+        builder.include(m3.getPosition());
+        builder.include(m4.getPosition());
+        builder.include(m5.getPosition());
+        builder.include(m6.getPosition());
+        builder.include(m7.getPosition());
+        builder.include(m8.getPosition());
+        builder.include(m9.getPosition());
+        builder.include(m10.getPosition());
 
         int padding = 50;
         LatLngBounds bounds = builder.build();
