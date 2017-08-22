@@ -60,6 +60,7 @@ public class MenuActivity extends AppCompatActivity
 
     public void toPlaces(View view){
         Intent toPlaceActivity = new Intent(MenuActivity.this, PlaceActivity.class);
+        toPlaceActivity.putExtra("place_num", 1);
         startActivity(toPlaceActivity);
     }
 

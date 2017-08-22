@@ -17,14 +17,16 @@
         android:layout_weight="7"
         tools:context="kareliaguide.vsquad.com.karelianewguide.MapsByGoogle" />
 
-    <Button
+    <ImageView
         android:id="@+id/button2"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:onClick="toCorrector"
         android:layout_gravity="bottom|center_horizontal"
         android:text="Построить маршрут"
         app:layout_anchor="@+id/include5"
+        android:src="@color/common_google_signin_btn_text_light_pressed"
         app:layout_anchorGravity="bottom|center_horizontal" />
 
 </LinearLayout>
