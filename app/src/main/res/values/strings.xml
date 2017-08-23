@@ -172,4 +172,5 @@ w:	Википедия
     <string name="title_activity_maps">MapsActivity</string>
     <string name="title_activity_map">Map</string>
     <string name="title_activity_weather">WeatherActivity</string>
+    <string name="title_activity_tours">ToursActivity</string>
 </resources>
