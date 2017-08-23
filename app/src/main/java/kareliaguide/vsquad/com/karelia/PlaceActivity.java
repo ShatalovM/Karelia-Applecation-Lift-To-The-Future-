@@ -2,6 +2,9 @@ package kareliaguide.vsquad.com.karelia;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,6 +20,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class PlaceActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -209,6 +215,10 @@ public class PlaceActivity extends AppCompatActivity
     public double lat;
     public double lon;
 
+    public ArrayList<Double> Locations_list_lat;
+    public ArrayList<Double> Locations_list_lon;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -217,14 +227,6 @@ public class PlaceActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Локация добавлена в Ваш маршрут", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
 
         place_description = (TextView) findViewById(R.id.place_description);
         icon_or_next = (FloatingActionButton) findViewById(R.id.icon_or_next);
@@ -245,7 +247,36 @@ public class PlaceActivity extends AppCompatActivity
             place_num = getData.getInt("place_num"); // Получаем номер места, необходимого для подгрузки
             lat = getData.getDouble("latitude"); // Получаем широту места
             lon = getData.getDouble("longitude"); // Получаем долготу места
+            Locations_list_lat = (ArrayList<Double>) getData.getSerializable(""); // Получаем список уже доабвлененных локаций, долгота
+            Locations_list_lon = (ArrayList<Double>) getData.getSerializable(""); // Получаем список уже доабвлененных локаций, широта
+
         }
+
+        Locations_list_lat = new ArrayList<>();
+        Locations_list_lon = new ArrayList<>();
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (Locations_list_lat != null) {
+                    if (Locations_list_lon.contains(lon) && Locations_list_lat.contains(lat)) {
+                        Snackbar.make(view, "Данная локация уже есть в Вашем списке", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
+                    } else {
+                        Locations_list_lat.add(lat);
+                        Locations_list_lon.add(lon);
+                        Snackbar.make(view, "Локация добавлена в Ваш маршрут", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();
+                    }
+                } else {
+                    Locations_list_lat.add(lat);
+                    Locations_list_lon.add(lon);
+                    Snackbar.make(view, "Локация добавлена в Ваш маршрут", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+            }
+        });
 
         /*
         [0;n]: номер места
@@ -264,6 +295,7 @@ public class PlaceActivity extends AppCompatActivity
                 setTitle(Places_base[0][0]);
                 place_description.setText(Places_base[1][0]);
                 background_photo.setImageResource(R.drawable.kizhi);
+                icon_or_next.setImageResource(R.drawable.active);
                 break;
             case 1:
                 setTitle(Places_base[0][1]);

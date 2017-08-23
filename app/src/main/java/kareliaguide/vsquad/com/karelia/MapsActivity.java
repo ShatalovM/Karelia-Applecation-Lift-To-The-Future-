@@ -78,6 +78,9 @@ public class MapsActivity extends AppCompatActivity
             34.3897
     };
 
+    public ArrayList<Double> Locations_list_lat = new ArrayList<Double>();
+    public ArrayList<Double> Locations_list_lon = new ArrayList<Double>();
+
     double longitude4places;
     double latitude4places;
 
@@ -208,6 +211,7 @@ public class MapsActivity extends AppCompatActivity
                     .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                     .title(Places_base[i])
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                    .snippet("Подробнее...")
             );
 
 

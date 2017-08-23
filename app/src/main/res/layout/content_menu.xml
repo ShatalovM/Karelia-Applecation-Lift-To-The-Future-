@@ -9,7 +9,6 @@
 
     tools:showIn="@layout/app_bar_menu">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,18 +17,22 @@
 
         <ImageView
             android:id="@+id/btn_first"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/colorPrimaryDark"
-            android:onClick="toPlaces"/>
+            android:onClick="toPlaces"
+            android:scaleType="centerInside"
+            android:src="@drawable/food" />
 
         <ImageView
             android:id="@+id/btn_second"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorAccent" />
+            android:background="@color/colorAccent"
+            android:scaleType="centerInside"
+            android:src="@drawable/statue" />
 
     </LinearLayout>
 
@@ -42,17 +45,21 @@
 
         <ImageView
             android:id="@+id/btn_third"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#666666" />
+            android:background="#666666"
+            android:scaleType="centerInside"
+            android:src="@drawable/active" />
 
         <ImageView
             android:id="@+id/btn_fourth"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#999999" />
+            android:background="#999999"
+            android:scaleType="centerInside"
+            android:src="@drawable/tent" />
 
     </LinearLayout>
 
@@ -64,17 +71,21 @@
 
         <ImageView
             android:id="@+id/btn_fifth"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#222222" />
+            android:background="#222222"
+            android:scaleType="centerInside"
+            android:src="@drawable/popular" />
 
         <ImageView
             android:id="@+id/btn_sixth"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#888888" />
+            android:background="#888888"
+            android:scaleType="centerInside"
+            android:src="@drawable/nearby_places" />
 
     </LinearLayout>
 
