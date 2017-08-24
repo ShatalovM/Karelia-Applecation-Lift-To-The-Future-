@@ -3,6 +3,7 @@ package kareliaguide.vsquad.com.karelia;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -19,7 +20,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
+import com.akexorcist.googledirection.DirectionCallback;
+import com.akexorcist.googledirection.GoogleDirection;
+import com.akexorcist.googledirection.constant.AvoidType;
+import com.akexorcist.googledirection.constant.Language;
+import com.akexorcist.googledirection.constant.TransportMode;
+import com.akexorcist.googledirection.model.Direction;
+import com.akexorcist.googledirection.util.DirectionConverter;
 import com.google.android.gms.common.images.ImageManager;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -323,10 +332,31 @@ public class MapsActivity extends AppCompatActivity
     }
 
     public void toCorrector (View view){
-        /*
-        Intent toActivity = new Intent(MapsActivity.this, PlacesForMapCorrectActivity.class);
-        startActivity(toActivity);
-        */
+        GoogleDirection.withServerKey("AIzaSyDO8ApRI_rmn5fHoXZdE8RlASKSbqz-PPA")
+                .from(new LatLng(Places_latitude[0], Places_longitude[0]))
+                .to(new LatLng(Places_latitude[1], Places_longitude[1]))
+                .avoid(AvoidType.FERRIES)
+                .avoid(AvoidType.HIGHWAYS)
+                .execute(new DirectionCallback() {
+                    @Override
+                    public void onDirectionSuccess(Direction direction, String rawBody) {
+                        if(direction.isOK()) {
+                            Toast.makeText(MapsActivity.this, "Success with status : " + direction.getStatus(), Toast.LENGTH_SHORT).show();
+                            mMap.addMarker(new MarkerOptions().position(new LatLng(Places_latitude[0], Places_longitude[0])));
+                            mMap.addMarker(new MarkerOptions().position(new LatLng(Places_latitude[1], Places_longitude[1])));
+
+                            ArrayList<LatLng> directionPositionList = direction.getRouteList().get(0).getLegList().get(0).getDirectionPoint();
+                            mMap.addPolyline(DirectionConverter.createPolyline(MapsActivity.this, directionPositionList, 5, Color.RED));
+                    } else {
+                            System.out.println("OK or not");
+                        }
+                }
+
+        @Override
+        public void onDirectionFailure(Throwable t) {
+            System.out.println("Fail"+t.getMessage()+"\n"+t.getCause());
+        }
+    });
     }
 
 
@@ -356,10 +386,6 @@ public class MapsActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -370,17 +396,17 @@ public class MapsActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_menu) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_places) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_map) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_tours) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_advices) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_weather) {
 
         }
 

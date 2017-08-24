@@ -9,6 +9,20 @@
 
 # Add any project specific keep options here:
 -keep class com.woxthebox.draglistview.** { *; }
+-keep class com.akexorcist.** { ; }
+-keep interface com.akexorcist.* { *; }
+
+-keep class com.google.android.gms.maps.** { ; }
+-keep interface com.google.android.gms.maps.* { *; }
+
+-dontwarn retrofit2.**
+-keep class retrofit2.** { *; }
+-keepattributes Signature
+-keepattributes Exceptions
+
+-keepclasseswithmembers class * {
+    @retrofit2.http.* <methods>;
+}
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
 # class:

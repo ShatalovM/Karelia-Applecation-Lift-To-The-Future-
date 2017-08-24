@@ -63,6 +63,10 @@
         <activity
             android:name=".ToursActivity"
             android:label="@string/title_activity_tours"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".AdviceActivity"
+            android:label="@string/title_activity_advice"
             android:theme="@style/AppTheme"></activity>
     </application>
 

@@ -169,8 +169,9 @@
 Братские проекты фонда Викимедиа
 w:	Википедия
 Многоязычная энциклопедия</string>
-    <string name="title_activity_maps">MapsActivity</string>
-    <string name="title_activity_map">Map</string>
-    <string name="title_activity_weather">WeatherActivity</string>
-    <string name="title_activity_tours">ToursActivity</string>
+    <string name="title_activity_maps">Карта</string>
+    <string name="title_activity_map">Карта</string>
+    <string name="title_activity_weather">Погода</string>
+    <string name="title_activity_tours">Туры</string>
+    <string name="title_activity_advice">Советы</string>
 </resources>

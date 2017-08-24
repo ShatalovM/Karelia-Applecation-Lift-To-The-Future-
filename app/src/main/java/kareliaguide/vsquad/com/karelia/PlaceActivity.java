@@ -409,10 +409,6 @@ public class PlaceActivity extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -423,17 +419,17 @@ public class PlaceActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_menu) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_places) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_map) {
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_tours) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_advices) {
 
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_weather) {
 
         }
 
