@@ -36,7 +36,7 @@ public class PlaceActivity extends AppCompatActivity
             "Кижи",
             "Онежское озеро",
             "Валаамский монастырь",
-            "Церковь Преображения Господня на острове Кижи",
+            "Церковь Преображения Господня",
             "Ладожское озеро",
             "Рускеала Горный Парк",
             "Кивач",
@@ -305,42 +305,42 @@ public class PlaceActivity extends AppCompatActivity
             case 2:
                 setTitle(Places_base[0][2]);
                 place_description.setText(Places_base[1][2]);
-                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                background_photo.setImageResource(R.drawable.monastir);
                 break;
             case 3:
                 setTitle(Places_base[0][3]);
                 place_description.setText(Places_base[1][3]);
-                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                background_photo.setImageResource(R.drawable.cerkovnakizhah);
                 break;
             case 4:
                 setTitle(Places_base[0][4]);
                 place_description.setText(Places_base[1][4]);
-                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                background_photo.setImageResource(R.drawable.ladojskoe);
                 break;
             case 5:
                 setTitle(Places_base[0][5]);
                 place_description.setText(Places_base[1][5]);
-                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                background_photo.setImageResource(R.drawable.ruskeala);
                 break;
             case 6:
                 setTitle(Places_base[0][6]);
                 place_description.setText(Places_base[1][6]);
-                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                background_photo.setImageResource(R.drawable.kivach);
                 break;
             case 7:
                 setTitle(Places_base[0][7]);
                 place_description.setText(Places_base[1][7]);
-                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                background_photo.setImageResource(R.drawable.vodopadi);
                 break;
             case 8:
                 setTitle(Places_base[0][8]);
                 place_description.setText(Places_base[1][8]);
-                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                background_photo.setImageResource(R.drawable.vottavara);
                 break;
             case 9:
                 setTitle(Places_base[0][9]);
                 place_description.setText(Places_base[1][9]);
-                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                background_photo.setImageResource(R.drawable.petr_first);
                 break;
 
             // Определение по категориям

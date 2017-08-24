@@ -1,5 +1,7 @@
 package kareliaguide.vsquad.com.karelia;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +14,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.net.URL;
 
 public class ToursActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -40,6 +44,46 @@ public class ToursActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public void tour1 (View view){
+        Intent toToursURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://scantour.ru/turi-v-kareliu/ekskursionnyy-tur-v-ruskealu-na-1-den"));
+        startActivity(toToursURL);
+    }
+
+    public void tour2 (View view){
+        Intent toToursURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://scantour.ru/turi-v-kareliu/bezmyatezhnyy-otpusk-v-karelii-4-dnya"));
+        startActivity(toToursURL);
+    }
+
+    public void tour3 (View view){
+        Intent toToursURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://scantour.ru/turi-v-kareliu/tur-v-kareliyu-na-2-dnya-romanticheskiy-uik-end-v-karelii"));
+        startActivity(toToursURL);
+    }
+
+    public void tour4 (View view){
+        Intent toToursURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://karelia-lines.ru/ekskursii-po-karelii/katanie-na-loshadyah.html"));
+        startActivity(toToursURL);
+    }
+
+    public void tour5 (View view){
+        Intent toToursURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://karelia-lines.ru/tury-na-sobachih-upryazhkah-v-karelii/katanie-na-upryazhkakh-v-votchine-talvi-ukko.html"));
+        startActivity(toToursURL);
+    }
+
+    public void tour6 (View view){
+        Intent toToursURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://karelia-lines.ru/tury-na-kvadrotsiklah/tur-na-kvadrotsiklah-2-dnya.html"));
+        startActivity(toToursURL);
+    }
+
+    public void tour7 (View view){
+        Intent toToursURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://scantour.ru/turi-v-kareliu/ekskursiya-na-valaam-na-1-den"));
+        startActivity(toToursURL);
+    }
+
+    public void tour8 (View view){
+        Intent toToursURL = new Intent(Intent.ACTION_VIEW, Uri.parse("http://scantour.ru/turi-v-kareliu/drevnie-vodopady-i-kanony-karelii-2-dnya"));
+        startActivity(toToursURL);
     }
 
     @Override

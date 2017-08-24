@@ -43,7 +43,7 @@ public class MapsActivity extends AppCompatActivity
             "Кижи",
             "Онежское озеро",
             "Валаамский монастырь",
-            "Церковь Преображения Господня на острове Кижи",
+            "Церковь Преображения Господня",
             "Ладожское озеро",
             "Рускеала Горный Парк",
             "Кивач",
@@ -207,12 +207,14 @@ public class MapsActivity extends AppCompatActivity
                 location.getLatitude(), location.getLongitude())).title("Вы здесь"));
 
         for (int i = 0; i < Places_base.length; i++){
+            /*
             mMap.addMarker(new MarkerOptions()
                     .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                     .title(Places_base[i])
                     .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
                     .snippet("Подробнее...")
             );
+            */
 
 
             switch (i){
@@ -221,68 +223,78 @@ public class MapsActivity extends AppCompatActivity
                             .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                             .title(Places_base[i])
                             .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                            .snippet("Подробнее...")
                     );
                     continue;
                 case 1:
                     m2 = mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                             .title(Places_base[i])
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.onejskoe_logo))
+                            .snippet("Подробнее...")
                     );
                     continue;
                 case 2:
                     m3 = mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                             .title(Places_base[i])
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.monastir_logo))
+                            .snippet("Подробнее...")
                     );
                     continue;
                 case 3:
                     m4 = mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                             .title(Places_base[i])
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.cerkovnakizhah_logo))
+                            .snippet("Подробнее...")
                     );
                     continue;
                 case 4:
                     m5 = mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                             .title(Places_base[i])
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ladojskoe_logo))
+                            .snippet("Подробнее...")
                     );
                     continue;
                 case 5:
                     m6 = mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                             .title(Places_base[i])
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.ruskeala_logo))
+                            .snippet("Подробнее...")
                     );
                     continue;
                 case 6:
                     m7 = mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                             .title(Places_base[i])
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kivach_logo))
+                            .snippet("Подробнее...")
                     );
                     continue;
                 case 7:
                     m8 = mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                             .title(Places_base[i])
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.vodopadi_logo))
+                            .snippet("Подробнее...")
                     );
                     continue;
                 case 8:
                     m9 = mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                             .title(Places_base[i])
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.vottavara_logo))
+                            .snippet("Подробнее...")
                     );
                 case 9:
                     m10 = mMap.addMarker(new MarkerOptions()
                             .position(new LatLng(Places_latitude[i], Places_longitude[i]))
                             .title(Places_base[i])
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.kizhi_marker))
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.petr_first_logo))
+                            .snippet("Подробнее...")
                     );
                     continue;
             }

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/background_light"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="kareliaguide.vsquad.com.karelia.ToursActivity"
     tools:showIn="@layout/app_bar_tours">
@@ -11,11 +12,75 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            </LinearLayout>
+            <ImageView
+                android:id="@+id/tour1"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="tour1"
+                app:srcCompat="@drawable/jemchugina_karelia_ruskeala" />
+
+            <ImageView
+                android:id="@+id/tour2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="tour2"
+                app:srcCompat="@drawable/karelskaya_riviera" />
+
+            <ImageView
+                android:id="@+id/tour3"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="tour3"
+                app:srcCompat="@drawable/romanticheskiy_uik_end" />
+
+            <ImageView
+                android:id="@+id/tour4"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="tour4"
+                app:srcCompat="@drawable/loshadi_karelia" />
+
+            <ImageView
+                android:id="@+id/tour5"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="tour5"
+                app:srcCompat="@drawable/votchina_karelia" />
+
+            <ImageView
+                android:id="@+id/tour6"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="tour6"
+                app:srcCompat="@drawable/kvarocykli_karelia" />
+
+            <ImageView
+                android:id="@+id/tour7"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="tour7"
+                app:srcCompat="@drawable/valaam_karelia" />
+
+            <ImageView
+                android:id="@+id/tour8"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:onClick="tour8"
+                app:srcCompat="@drawable/vodopadi_karelia" />
+        </LinearLayout>
     </ScrollView>
 </RelativeLayout>
