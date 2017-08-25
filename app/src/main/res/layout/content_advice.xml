@@ -9,17 +9,13 @@
     tools:context="kareliaguide.vsquad.com.karelia.AdviceActivity"
     tools:showIn="@layout/app_bar_advice">
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp" />
-
     <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="350dp"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/view">
+        android:layout_alignParentTop="true"
+        android:layout_above="@+id/imageView2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,14 +24,14 @@
 
             <TextView
                 android:id="@+id/advice_textview"
-                android:layout_width="283dp"
-                android:layout_height="353dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:text="Text here"
                 android:textAlignment="viewStart"
                 android:textColor="@color/black"
-                android:textSize="26sp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginRight="50dp"
+                android:textSize="23sp"
                 android:typeface="normal" />
         </LinearLayout>
     </ScrollView>
@@ -44,10 +40,10 @@
         android:id="@+id/imageView2"
         android:layout_width="1000dp"
         android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/scrollView2"
         android:fillViewport="true"
-        android:src="@drawable/next"
-        android:onClick="nextAdvice"/>
+        android:onClick="nextAdvice"
+        android:src="@drawable/next" />
 
 </RelativeLayout>

@@ -2,6 +2,7 @@ package kareliaguide.vsquad.com.karelia;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -87,8 +88,8 @@ public class MapsActivity extends AppCompatActivity
             34.3897
     };
 
-    public ArrayList<Double> Locations_list_lat = new ArrayList<Double>();
-    public ArrayList<Double> Locations_list_lon = new ArrayList<Double>();
+    public ArrayList<Double> Locations_list_lat;
+    public ArrayList<Double> Locations_list_lon;
 
     double longitude4places;
     double latitude4places;
@@ -142,11 +143,24 @@ public class MapsActivity extends AppCompatActivity
         setContentView(R.layout.activity_maps);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+
+        Locations_list_lat = new ArrayList<>();
+        Locations_list_lon = new ArrayList<>();
+
+
+        Bundle getData = getIntent().getExtras();
+
+        if (getData != null) {
+            Locations_list_lat = (ArrayList<Double>) getData.getSerializable("list_lat"); // Получаем список уже доабвлененных локаций, долгота
+            Locations_list_lon = (ArrayList<Double>) getData.getSerializable("list_lon"); // Получаем список уже доабвлененных локаций, широта
+        }
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -187,6 +201,8 @@ public class MapsActivity extends AppCompatActivity
                     toMoreInfo.putExtra("place_num", place_num);
                     toMoreInfo.putExtra("latitude", latitude4places);
                     toMoreInfo.putExtra("longitude", longitude4places);
+                    toMoreInfo.putExtra("list_lat", Locations_list_lat);
+                    toMoreInfo.putExtra("list_lon", Locations_list_lon);
                     startActivity(toMoreInfo);
                 }
             }
@@ -397,18 +413,26 @@ public class MapsActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
-            // Handle the camera action
+            Intent toActivity = new Intent(getApplicationContext(), MenuActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_places) {
-
+            Intent toActivity = new Intent(getApplicationContext(), PlaceActivity.class);
+            toActivity.putExtra("place_num", -1);
+            startActivity(toActivity);
         } else if (id == R.id.nav_map) {
-
+            Intent toActivity = new Intent(getApplicationContext(), MapsActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_tours) {
-
+            Intent toActivity = new Intent(getApplicationContext(), ToursActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_advices) {
-
+            Intent toActivity = new Intent(getApplicationContext(), AdviceActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_weather) {
-
+            Intent toActivity = new Intent(getApplicationContext(), WeatherActivity.class);
+            startActivity(toActivity);
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

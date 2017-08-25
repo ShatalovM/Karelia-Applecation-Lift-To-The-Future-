@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#ebbd85</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="black">#000000</color>
+    <color name="for_map_set">#d9d391</color>
+    
+    <color name="menu_food">#71a9cd</color>
+    <color name="menu_canoe">#eccf65</color>
+    <color name="menu_matr">#cf7e5c</color>
+    <color name="menu_forest">#8ec498</color>
+    <color name="menu_top">#97c35c</color>
+    <color name="menu_nearby">#eac747</color>
 </resources>

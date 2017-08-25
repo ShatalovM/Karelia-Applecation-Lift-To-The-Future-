@@ -1,6 +1,7 @@
 package kareliaguide.vsquad.com.karelia;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +15,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 public class AdviceActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,9 +47,7 @@ public class AdviceActivity extends AppCompatActivity
         setContentView(R.layout.activity_advice);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-        advice_num = (int) Math.floor(Math.random()*Advices_pull.length);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -58,11 +59,13 @@ public class AdviceActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         advice_textview = (TextView) findViewById(R.id.advice_textview);
+        advice_num = (int) Math.floor(Math.random()*Advices_pull.length);
+        advice_textview.setText(Advices_pull[advice_num]);
     }
 
     public void nextAdvice(View view){
         advice_num = (int) Math.floor(Math.random()*Advices_pull.length);
-        advice_textview.setText(advice_num);
+        advice_textview.setText(Advices_pull[advice_num]);
     }
 
     @Override
@@ -101,18 +104,26 @@ public class AdviceActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
-            Intent toActivity = new Intent();
+            Intent toActivity = new Intent(getApplicationContext(), MenuActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_places) {
-
+            Intent toActivity = new Intent(getApplicationContext(), PlaceActivity.class);
+            toActivity.putExtra("place_num", -1);
+            startActivity(toActivity);
         } else if (id == R.id.nav_map) {
-
+            Intent toActivity = new Intent(getApplicationContext(), MapsActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_tours) {
-
+            Intent toActivity = new Intent(getApplicationContext(), ToursActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_advices) {
-
+            Intent toActivity = new Intent(getApplicationContext(), AdviceActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_weather) {
-
+            Intent toActivity = new Intent(getApplicationContext(), WeatherActivity.class);
+            startActivity(toActivity);
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

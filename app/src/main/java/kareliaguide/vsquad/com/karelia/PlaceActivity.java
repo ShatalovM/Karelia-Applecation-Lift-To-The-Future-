@@ -2,6 +2,7 @@ package kareliaguide.vsquad.com.karelia;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
@@ -30,6 +31,8 @@ public class PlaceActivity extends AppCompatActivity
     public TextView place_description;
     public FloatingActionButton icon_or_next;
     public ImageView background_photo;
+
+    public int Places_base_length = 10;
 
     // БД для всех мест
     public String[][] Places_base = {{
@@ -226,7 +229,7 @@ public class PlaceActivity extends AppCompatActivity
         setContentView(R.layout.activity_place);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         place_description = (TextView) findViewById(R.id.place_description);
         icon_or_next = (FloatingActionButton) findViewById(R.id.icon_or_next);
@@ -241,19 +244,18 @@ public class PlaceActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        Locations_list_lat = new ArrayList<>();
+        Locations_list_lon = new ArrayList<>();
+
         Bundle getData = getIntent().getExtras();
 
         if (getData != null) {
             place_num = getData.getInt("place_num"); // Получаем номер места, необходимого для подгрузки
             lat = getData.getDouble("latitude"); // Получаем широту места
             lon = getData.getDouble("longitude"); // Получаем долготу места
-            Locations_list_lat = (ArrayList<Double>) getData.getSerializable(""); // Получаем список уже доабвлененных локаций, долгота
-            Locations_list_lon = (ArrayList<Double>) getData.getSerializable(""); // Получаем список уже доабвлененных локаций, широта
-
+            Locations_list_lat = (ArrayList<Double>) getData.getSerializable("list_lat"); // Получаем список уже доабвлененных локаций, долгота
+            Locations_list_lon = (ArrayList<Double>) getData.getSerializable("list_lon"); // Получаем список уже доабвлененных локаций, широта
         }
-
-        Locations_list_lat = new ArrayList<>();
-        Locations_list_lon = new ArrayList<>();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -270,6 +272,8 @@ public class PlaceActivity extends AppCompatActivity
                                 .setAction("Action", null).show();
                     }
                 } else {
+                    Locations_list_lat = new ArrayList<>();
+                    Locations_list_lon = new ArrayList<>();
                     Locations_list_lat.add(lat);
                     Locations_list_lon.add(lon);
                     Snackbar.make(view, "Локация добавлена в Ваш маршрут", Snackbar.LENGTH_LONG)
@@ -346,8 +350,8 @@ public class PlaceActivity extends AppCompatActivity
             // Определение по категориям
             case -2:
                 icon_or_next.setImageResource(R.drawable.ic_menu_send);
-                setTitle(Category_active[shown_place%Category_active.length][shown_place+1%Category_active.length]);
-                place_description.setText(Category_active[shown_place%Category_active.length][shown_place+1%Category_active.length]);
+                setTitle(Category_active[0][shown_place+1%Category_active.length]);
+                place_description.setText(Category_active[1][shown_place+1%Category_active.length]);
                 background_photo.setImageResource(R.drawable.karelia);
             case -3:
                 icon_or_next.setImageResource(R.drawable.ic_menu_send);
@@ -372,27 +376,68 @@ public class PlaceActivity extends AppCompatActivity
 
             // Место не указано
             case -1:
-                // обработка
+                icon_or_next.setImageResource(R.drawable.ic_menu_send);
+                setTitle(Places_base[0][shown_place%(Places_base_length)]);
+                place_description.setText(Places_base[1][(shown_place%(Places_base_length))]);
+                background_photo.setImageResource(R.drawable.karelia);
         }
     }
 
     public void ic_next (View view){
-        if (place_num <= -2 && place_num >= -7){
+        if (place_num <= -1 && place_num >= -7){
             shown_place++;
-            setTitle(Category_active[shown_place%Category_active.length][shown_place+1%Category_active.length]);
-            place_description.setText(Category_active[shown_place%Category_active.length][shown_place+1%Category_active.length]);
-            background_photo.setImageResource(R.drawable.karelia);
+            setTitle(Places_base[0][(shown_place % (Places_base_length))]);
+            place_description.setText(Places_base[1][(shown_place % (Places_base_length))]);
+            if (shown_place%Places_base_length == 0) {
+                background_photo.setImageResource(R.drawable.kizhi);
+                lat = Places_latitude[0];
+                lon = Places_longitude[0];
+            } else if (shown_place%Places_base_length == 1) {
+                background_photo.setImageResource(R.drawable.onezhskoe_ozero);
+                lat = Places_latitude[1];
+                lon = Places_longitude[1];
+            } else if (shown_place%Places_base_length == 2) {
+                    background_photo.setImageResource(R.drawable.monastir);
+                lat = Places_latitude[2];
+                lon = Places_longitude[2];
+            } else if (shown_place%Places_base_length == 3) {
+                    background_photo.setImageResource(R.drawable.cerkovnakizhah);
+                lat = Places_latitude[3];
+                lon = Places_longitude[3];
+            } else if (shown_place%Places_base_length == 4) {
+                    background_photo.setImageResource(R.drawable.ladojskoe);
+                lat = Places_latitude[4];
+                lon = Places_longitude[4];
+            } else if (shown_place%Places_base_length == 5) {
+                    background_photo.setImageResource(R.drawable.ruskeala);
+                lat = Places_latitude[5];
+                lon = Places_longitude[5];
+            } else if (shown_place%Places_base_length == 6) {
+                    background_photo.setImageResource(R.drawable.kivach);
+                lat = Places_latitude[6];
+                lon = Places_longitude[6];
+            } else if (shown_place%Places_base_length == 7) {
+                    background_photo.setImageResource(R.drawable.vodopadi);
+                lat = Places_latitude[7];
+                lon = Places_longitude[7];
+            } else if (shown_place%Places_base_length == 8) {
+                    background_photo.setImageResource(R.drawable.vottavara);
+                lat = Places_latitude[8];
+                lon = Places_longitude[8];
+            } else if (shown_place%Places_base_length == 9) {
+                    background_photo.setImageResource(R.drawable.petr_first);
+                lat = Places_latitude[9];
+                lon = Places_longitude[9];
+            }
         }
     }
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+        Intent toMaps = new Intent(PlaceActivity.this, MapsActivity.class);
+        toMaps.putExtra("list_lat", Locations_list_lat);
+        toMaps.putExtra("list_lon", Locations_list_lon);
+        startActivity(toMaps);
     }
 
     @Override
@@ -420,17 +465,24 @@ public class PlaceActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
-            // Handle the camera action
+            Intent toActivity = new Intent(getApplicationContext(), MenuActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_places) {
-
+            Intent toActivity = new Intent(getApplicationContext(), PlaceActivity.class);
+            toActivity.putExtra("place_num", -1);
+            startActivity(toActivity);
         } else if (id == R.id.nav_map) {
-
+            Intent toActivity = new Intent(getApplicationContext(), MapsActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_tours) {
-
+            Intent toActivity = new Intent(getApplicationContext(), ToursActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_advices) {
-
+            Intent toActivity = new Intent(getApplicationContext(), AdviceActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_weather) {
-
+            Intent toActivity = new Intent(getApplicationContext(), WeatherActivity.class);
+            startActivity(toActivity);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -1,5 +1,7 @@
 package kareliaguide.vsquad.com.karelia;
 
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,6 +24,7 @@ public class WeatherActivity extends AppCompatActivity
         setContentView(R.layout.activity_weather);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -76,17 +79,24 @@ public class WeatherActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
-            // Handle the camera action
+            Intent toActivity = new Intent(getApplicationContext(), MenuActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_places) {
-
+            Intent toActivity = new Intent(getApplicationContext(), PlaceActivity.class);
+            toActivity.putExtra("place_num", -1);
+            startActivity(toActivity);
         } else if (id == R.id.nav_map) {
-
+            Intent toActivity = new Intent(getApplicationContext(), MapsActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_tours) {
-
+            Intent toActivity = new Intent(getApplicationContext(), ToursActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_advices) {
-
+            Intent toActivity = new Intent(getApplicationContext(), AdviceActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_weather) {
-
+            Intent toActivity = new Intent(getApplicationContext(), WeatherActivity.class);
+            startActivity(toActivity);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/for_map_set"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="kareliaguide.vsquad.com.karelia.MapsActivity"
-    tools:showIn="@layout/app_bar_maps"
-    android:orientation="vertical">
+    tools:showIn="@layout/app_bar_maps">
 
     <fragment
         android:id="@+id/map"
@@ -19,14 +20,14 @@
 
     <ImageView
         android:id="@+id/button2"
-        android:layout_weight="1"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="70dp"
-        android:onClick="toCorrector"
         android:layout_gravity="bottom|center_horizontal"
-        android:text="Построить маршрут"
+        android:layout_weight="1"
+        android:clickable="false"
+        android:onClick="toCorrector"
+        android:src="@drawable/set_dist"
         app:layout_anchor="@+id/include5"
-        android:src="@color/common_google_signin_btn_text_light_pressed"
         app:layout_anchorGravity="bottom|center_horizontal" />
 
 </LinearLayout>

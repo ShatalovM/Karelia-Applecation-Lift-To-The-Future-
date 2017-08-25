@@ -20,19 +20,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorPrimaryDark"
+            android:background="@color/menu_food"
             android:onClick="toPlaces"
             android:scaleType="centerInside"
-            android:src="@drawable/food" />
+            android:src="@drawable/cutlery" />
 
         <ImageView
             android:id="@+id/btn_second"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@color/colorAccent"
+            android:background="@color/menu_canoe"
             android:scaleType="centerInside"
-            android:src="@drawable/statue" />
+            android:src="@drawable/matryoshka" />
 
     </LinearLayout>
 
@@ -48,18 +48,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#666666"
+            android:background="@color/menu_matr"
             android:scaleType="centerInside"
-            android:src="@drawable/active" />
+            android:src="@drawable/canoe" />
 
         <ImageView
             android:id="@+id/btn_fourth"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#999999"
+            android:background="@color/menu_forest"
             android:scaleType="centerInside"
-            android:src="@drawable/tent" />
+            android:src="@drawable/forest" />
 
     </LinearLayout>
 
@@ -74,7 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#222222"
+            android:background="@color/menu_top"
             android:scaleType="centerInside"
             android:src="@drawable/popular" />
 
@@ -83,9 +83,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="#888888"
+            android:background="@color/menu_nearby"
             android:scaleType="centerInside"
-            android:src="@drawable/nearby_places" />
+            android:src="@drawable/compass" />
 
     </LinearLayout>
 

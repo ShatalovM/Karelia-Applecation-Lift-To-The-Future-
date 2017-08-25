@@ -1,6 +1,7 @@
 package kareliaguide.vsquad.com.karelia;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Point;
 import android.media.Image;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.ImageView;
 
+import java.util.ArrayList;
+
 public class MenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -31,12 +34,15 @@ public class MenuActivity extends AppCompatActivity
         setContentView(R.layout.activity_menu);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setRequestedOrientation (ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
+
+        setTitle("Категории");
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -99,17 +105,24 @@ public class MenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_menu) {
-            // Handle the camera action
+            Intent toActivity = new Intent(getApplicationContext(), MenuActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_places) {
-
+            Intent toActivity = new Intent(getApplicationContext(), PlaceActivity.class);
+            toActivity.putExtra("place_num", -1);
+            startActivity(toActivity);
         } else if (id == R.id.nav_map) {
-
+            Intent toActivity = new Intent(getApplicationContext(), MapsActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_tours) {
-
+            Intent toActivity = new Intent(getApplicationContext(), ToursActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_advices) {
-
+            Intent toActivity = new Intent(getApplicationContext(), AdviceActivity.class);
+            startActivity(toActivity);
         } else if (id == R.id.nav_weather) {
-
+            Intent toActivity = new Intent(getApplicationContext(), WeatherActivity.class);
+            startActivity(toActivity);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

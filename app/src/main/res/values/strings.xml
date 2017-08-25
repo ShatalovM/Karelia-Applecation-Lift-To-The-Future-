@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Карелия Гид</string>
+    <string name="app_name">Гид по Карелии</string>
 
     <string name="navigation_drawer_open">Открыть навигацию</string>
     <string name="navigation_drawer_close">Закрыть навигацию</string>
