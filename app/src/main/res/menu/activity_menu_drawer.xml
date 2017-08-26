@@ -19,7 +19,6 @@
             android:title="Советы" />
         <item
             android:id="@+id/nav_weather"
-            android:enabled="false"
             android:title="Погода" />
     </group>
 

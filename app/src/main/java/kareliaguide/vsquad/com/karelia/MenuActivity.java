@@ -61,7 +61,6 @@ public class MenuActivity extends AppCompatActivity
 
         second.setMinimumWidth(width/2);
         second.setMaxWidth(width/2);
-
     }
 
     public void toPlaces(View view){

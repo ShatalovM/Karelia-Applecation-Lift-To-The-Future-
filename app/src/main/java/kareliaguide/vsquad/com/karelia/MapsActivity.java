@@ -4,7 +4,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Point;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -34,7 +37,9 @@ import com.google.android.gms.common.images.ImageManager;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.Projection;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
@@ -42,6 +47,9 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -347,44 +355,9 @@ public class MapsActivity extends AppCompatActivity
         });
     }
 
+
     public void toCorrector (View view){
-        GoogleDirection.withServerKey("AIzaSyDO8ApRI_rmn5fHoXZdE8RlASKSbqz-PPA")
-                .from(new LatLng(Places_latitude[0], Places_longitude[0]))
-                .to(new LatLng(Places_latitude[1], Places_longitude[1]))
-                .avoid(AvoidType.FERRIES)
-                .avoid(AvoidType.HIGHWAYS)
-                .execute(new DirectionCallback() {
-                    @Override
-                    public void onDirectionSuccess(Direction direction, String rawBody) {
-                        if(direction.isOK()) {
-                            Toast.makeText(MapsActivity.this, "Success with status : " + direction.getStatus(), Toast.LENGTH_SHORT).show();
-                            mMap.addMarker(new MarkerOptions().position(new LatLng(Places_latitude[0], Places_longitude[0])));
-                            mMap.addMarker(new MarkerOptions().position(new LatLng(Places_latitude[1], Places_longitude[1])));
 
-                            ArrayList<LatLng> directionPositionList = direction.getRouteList().get(0).getLegList().get(0).getDirectionPoint();
-                            mMap.addPolyline(DirectionConverter.createPolyline(MapsActivity.this, directionPositionList, 5, Color.RED));
-                    } else {
-                            System.out.println("OK or not");
-                        }
-                }
-
-        @Override
-        public void onDirectionFailure(Throwable t) {
-            System.out.println("Fail"+t.getMessage()+"\n"+t.getCause());
-        }
-    });
-    }
-
-
-
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
     }
 
 
