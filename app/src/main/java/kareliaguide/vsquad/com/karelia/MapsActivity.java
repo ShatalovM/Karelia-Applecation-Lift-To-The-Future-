@@ -227,6 +227,18 @@ public class MapsActivity extends AppCompatActivity
             return;
         }
         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, 2000, 10, locationListener);
+
+        /*
+        Bundle getData = getIntent().getExtras();
+
+        if (getData != null) {
+            place_num = getData.getInt("place_num"); // Получаем номер места, необходимого для подгрузки
+            lat = getData.getDouble("latitude"); // Получаем широту места
+            lon = getData.getDouble("longitude"); // Получаем долготу места
+            Locations_list_lat = (ArrayList<Double>) getData.getSerializable("list_lat"); // Получаем список уже доабвлененных локаций, долгота
+            Locations_list_lon = (ArrayList<Double>) getData.getSerializable("list_lon"); // Получаем список уже доабвлененных локаций, широта
+        }
+        */
         double longitude = location.getLongitude();
         double latitude = location.getLatitude();
         LatLng user_location = new LatLng(latitude, longitude);

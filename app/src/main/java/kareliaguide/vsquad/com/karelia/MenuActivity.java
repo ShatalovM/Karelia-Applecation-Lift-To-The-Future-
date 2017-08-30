@@ -63,9 +63,34 @@ public class MenuActivity extends AppCompatActivity
         second.setMaxWidth(width/2);
     }
 
-    public void toPlaces(View view){
+    public void toPlaces1(View view){
         Intent toPlaceActivity = new Intent(MenuActivity.this, PlaceActivity.class);
-        toPlaceActivity.putExtra("place_num", 1);
+        toPlaceActivity.putExtra("place_num", -1);
+        startActivity(toPlaceActivity);
+    }
+    public void toPlaces2(View view){
+        Intent toPlaceActivity = new Intent(MenuActivity.this, PlaceActivity.class);
+        toPlaceActivity.putExtra("place_num", -1);
+        startActivity(toPlaceActivity);
+    }
+    public void toPlaces3(View view){
+        Intent toPlaceActivity = new Intent(MenuActivity.this, PlaceActivity.class);
+        toPlaceActivity.putExtra("place_num", -1);
+        startActivity(toPlaceActivity);
+    }
+    public void toPlaces4(View view){
+        Intent toPlaceActivity = new Intent(MenuActivity.this, PlaceActivity.class);
+        toPlaceActivity.putExtra("place_num", -1);
+        startActivity(toPlaceActivity);
+    }
+    public void toPlaces5(View view){
+        Intent toPlaceActivity = new Intent(MenuActivity.this, PlaceActivity.class);
+        toPlaceActivity.putExtra("place_num", -1);
+        startActivity(toPlaceActivity);
+    }
+    public void toPlaces6(View view){
+        Intent toPlaceActivity = new Intent(MenuActivity.this, PlaceActivity.class);
+        toPlaceActivity.putExtra("place_num", -1);
         startActivity(toPlaceActivity);
     }
 

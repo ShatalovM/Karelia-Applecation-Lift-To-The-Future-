@@ -117,7 +117,7 @@ public class WeatherActivity extends AppCompatActivity
 
     }
 
-    public void refresh() {
+    public void refresh(View view) {
         loadWeather(city);
     }
 

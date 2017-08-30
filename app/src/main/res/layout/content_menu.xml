@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/menu_food"
-            android:onClick="toPlaces"
+            android:onClick="toPlaces1"
             android:scaleType="centerInside"
             android:src="@drawable/cutlery" />
 
@@ -31,6 +31,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/menu_canoe"
+            android:onClick="toPlaces2"
             android:scaleType="centerInside"
             android:src="@drawable/matryoshka" />
 
@@ -50,6 +51,7 @@
             android:layout_weight="1"
             android:background="@color/menu_matr"
             android:scaleType="centerInside"
+            android:onClick="toPlaces3"
             android:src="@drawable/canoe" />
 
         <ImageView
@@ -59,6 +61,7 @@
             android:layout_weight="1"
             android:background="@color/menu_forest"
             android:scaleType="centerInside"
+            android:onClick="toPlaces4"
             android:src="@drawable/forest" />
 
     </LinearLayout>
@@ -76,6 +79,7 @@
             android:layout_weight="1"
             android:background="@color/menu_top"
             android:scaleType="centerInside"
+            android:onClick="toPlaces5"
             android:src="@drawable/popular" />
 
         <ImageView
@@ -85,6 +89,7 @@
             android:layout_weight="1"
             android:background="@color/menu_nearby"
             android:scaleType="centerInside"
+            android:onClick="toPlaces6"
             android:src="@drawable/compass" />
 
     </LinearLayout>
